@@ -47,7 +47,7 @@ struct HLD{
 
     void Query(int x, int y){
         while(head[x] != head[y]){
-            // Check the route direction
+            // Should check the route direction
             if(dep[head[x]] < dep[head[y]])
                 swap(x, y);
 
