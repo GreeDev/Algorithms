@@ -17,7 +17,6 @@ struct HLD{
         w[x] = 1;
         par[x] = p;
         dep[x] = dep[p] + 1;
-        dfs[x] = ++dfsV;
         for(int i = 0; i < e[x].size(); i++){
             if(e[x][i] == p){
                 if(i + 1 == e[x].size())
@@ -36,19 +35,20 @@ struct HLD{
     int head[MAX_N];
     void DoHLD(int x, int hd){
         head[x] = hd;
+        dfs[x] = ++dfsV;
         if(e[x].size() == 0)
             return;
 
         DoHLD(e[x][0], hd);
         for(int i = 1; i < e[x].size(); i++){
-            DoHLD(e[x][i], hd);
+            DoHLD(e[x][i], e[x][i]);
         }
     }
 
     void Query(int x, int y){
         while(head[x] != head[y]){
             // Check the route direction
-            if(dep[x] < dep[y])
+            if(dep[head[x]] < dep[head[y]])
                 swap(x, y);
 
             // DO SOMETHING
@@ -56,11 +56,11 @@ struct HLD{
 
             x = par[head[x]];
         }
-        if(dep[x] < dep[y])
+        if(dfs[x] > dfs[y])
             swap(x, y);
 
         // DO SOMETHING
-        // Update(dfs[y], dfs[x]);
+        // Update(dfs[x], dfs[y]);
     }
 };
 
