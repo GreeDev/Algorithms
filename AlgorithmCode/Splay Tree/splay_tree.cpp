@@ -1,46 +1,7 @@
 #include <bits/stdc++.h>
-#include <ext/pb_ds/tree_policy.hpp>
-#include <ext/pb_ds/assoc_container.hpp>
 
 using namespace std;
-using namespace __gnu_pbds;
 
-// def start
-
-#define fastio ios_base::sync_with_stdio(false);cin.tie(0)
-#define endl '\n'
-
-using lli = long long int;
-using pll = pair<lli, lli>;
-using pii = pair<int, int>;
-
-#define X first
-#define Y second
-
-#define ALL(V) V.begin(), V.end()
-
-#define rep(I, S, E) for(int I = (S); I < (E); I++)
-#define repq(I, S, E) for(int I = (S); I <= (E); I++)
-
-#define pb push_back
-#define epb emplace_back
-
-pll operator+(pll a, pll b){
-	return {a.X + b.X, a.Y + b.Y};
-}
-pll operator-(pll a, pll b){
-	return {a.X - b.X, a.Y - b.Y};
-}
-lli operator*(pll a, pll b){
-	return a.X * b.Y - a.Y * b.X;
-}
-lli CCW(pll a, pll b, pll c){
-	return a * b + b * c + c * a;
-}
-
-// def end
-
-const int INF = 1e9;
 struct SplayTree{
 	struct Node{
 		Node *l, *r, *p;
