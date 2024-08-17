@@ -1,48 +1,35 @@
 #include <bits/stdc++.h>
-
-// begin of definition
+//#include <ext/pb_ds/tree_policy.hpp>
+//#include <ext/pb_ds/assoc_container.hpp>
 
 using namespace std;
+//using namespace __gnu_pbds;
 
-using lli = long long int;
-using uint = unsigned int;
-using ull = unsigned long long int;
-
-using pii = pair<int, int>;
-using pll = pair<lli, lli>;
-#define Fir first
-#define Sec second
-#define MKP make_pair
-
-using vi = vector<int>;
-using vii = vector<pii>;
-#define pb(X) push_back(X)
-#define ALL(X) (X.begin()), (X.end())
-
-using tiii = tuple<int, int, int>;
-
-#define FOR(X, START_VALUE, END_VALUE) for(int X = (START_VALUE); X < (END_VALUE); X++)
-#define FORQ(X, START_VALUE, END_VALUE) for(int X = (START_VALUE); X <= (END_VALUE); X++)
-#define FOR_V(X, START_VALUE, END_VALUE) for(X = (START_VALUE); X < (END_VALUE); X++)
-#define FORQ_V(X, START_VALUE, END_VALUE) for(X = (START_VALUE); X <= (END_VALUE); X++)
+// def start
 
 #define fastio ios_base::sync_with_stdio(false);cin.tie(0)
+#define endl '\n'
 
-lli Get_ModInverse(lli a, lli mod){
-    lli b = mod;
-    pll x = {1, 0};
-    pll y = {0, 1};
-    while(b){
-        x = {x.Fir - y.Fir * (a / b), x.Sec - y.Sec * (a / b)};
-        a %= b;
-        swap(a, b);
-        swap(x, y);
-    }
-    if(a > 1)
-        return -1;
-    return x.Fir + (x.Fir < 0 ? mod : 0);
-}
-// end of definition
+using lli = long long int;
+using pll = pair<lli, lli>;
+using pii = pair<int, int>;
+
+using Ld = long double;
+using pld = pair<Ld, Ld>;
+
+#define X first
+#define Y second
+
+#define ALL(V) V.begin(), V.end()
+
+#define rep(I, S, E) for(int I = (S); I < (E); I++)
+#define repq(I, S, E) for(int I = (S); I <= (E); I++)
+
+#define pb push_back
+#define epb emplace_back
+
+// def end
+
 
 int main(){
     fastio;
